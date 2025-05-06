@@ -1,0 +1,55 @@
+[gd_scene load_steps=13 format=3 uid="uid://cq2e5uh8prbrh"]
+
+[ext_resource type="Script" uid="uid://dkavarvv2cbtg" path="res://scripts/botao_fases.gd" id="1_lil0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lil0l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qr61w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cewy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8lou7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_562so"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chn8c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5wi21"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_le0pw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qaef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_akkws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81wrl"]
+
+[node name="botaoFase1" type="Node2D"]
+script = ExtResource("1_lil0l")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -51.5
+offset_right = 51.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lil0l")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_qr61w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3cewy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8lou7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_562so")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_chn8c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5wi21")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_le0pw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qaef")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_akkws")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_81wrl")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

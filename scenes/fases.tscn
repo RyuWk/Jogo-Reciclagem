@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca85u6ft01mn2"]
+
+[ext_resource type="Texture2D" uid="uid://cao64hfh6xsgn" path="res://assets/backgrounds/fases.png" id="1_ajcdm"]
+[ext_resource type="PackedScene" uid="uid://cq2e5uh8prbrh" path="res://scenes/botao_fases.tscn" id="2_3cmpl"]
+[ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ewvwu"]
+[ext_resource type="PackedScene" uid="uid://bku3uggp7o2r6" path="res://scenes/fase1.tscn" id="3_senh5"]
+
+[node name="fases" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+
+[node name="background" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ajcdm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -391.0
+offset_top = 41.0
+offset_right = 391.0
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_ewvwu")
+theme_override_font_sizes/font_size = 51
+text = "Selecione a fase"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="botaoFases" type="Node" parent="."]
+
+[node name="botaoFase1" parent="botaoFases" instance=ExtResource("2_3cmpl")]
+position = Vector2(206, 315)
+nomeFase = "fase1"
+
+[node name="botaoFase2" parent="botaoFases" instance=ExtResource("2_3cmpl")]
+position = Vector2(462, 321)
+nomeFase = "fase2"
+
+[node name="botaoFase3" parent="botaoFases" instance=ExtResource("2_3cmpl")]
+position = Vector2(733, 310)
+nomeFase = "fase3"
+
+[node name="botaoFase4" parent="botaoFases" instance=ExtResource("2_3cmpl")]
+position = Vector2(1014, 310)
+nomeFase = "fase4"
+
+[node name="fases" type="Node" parent="."]
+
+[node name="fase1" parent="fases" instance=ExtResource("3_senh5")]
+visible = false
