@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ebu40h63ompt"]
+
+[ext_resource type="Script" uid="uid://cls7sxf6u3vd7" path="res://scripts/spawna_verifica_lixo_n1.gd" id="1_4nx07"]
+[ext_resource type="Texture2D" uid="uid://b7j25g5ok8idy" path="res://assets/sprites/spr_lixos.png" id="2_1bnrr"]
+[ext_resource type="Script" uid="uid://dgr5kf2rtlk3o" path="res://scripts/escolhe_sprite_lixo.gd" id="2_4nx07"]
+[ext_resource type="Script" uid="uid://c7gln5jsmpgu8" path="res://scripts/controle_lixo.gd" id="2_lagc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co70i"]
+size = Vector2(8, 8)
+
+[node name="Lixo" type="Node2D"]
+script = ExtResource("1_4nx07")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_lagc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_co70i")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_1bnrr")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("2_4nx07")
