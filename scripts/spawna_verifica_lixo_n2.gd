@@ -1,19 +1,20 @@
 extends Node
 
-@onready var pontuacao_label = %pontuacao2 # Representa o marcador que dita a pontuacao
+@onready var pontuacaoLabel = $pontuacaoLabel
+@onready var errosLabel = $errosLabel
 const N_VARIEDADES : int = 3 # representa o numero de variedades de cada tipo de lixo
 const NIVEL : int = 2 # vai de 1 a 4
 var tipos #  Array com os tipos de lixo do nivel (nivel 1 = organicos e vidro"
 var tiposCompleto # O mesmo array do acima, mas ele servirá para usar o método pseudo-aleatório do "bucket"
 var coorSprite # Array que representa a posição no spreadsheet do sprite. [0] = tipo, [1] = variedade
 var tipo_lixo : String # Salva o tipo de lixo que está caindo ('org', 'vid', etc)
-var posicao_instanciamento := Vector2(-72, -32) # Local de spawn, deve ser editado dependendo do nivel
+var posicao_instanciamento := Vector2(0, -32) # Local de spawn, deve ser editado dependendo do nivel
 var lixo_instanciado = preload("res://scenes/lixo.tscn") # Salva a cena do lixo a ser instanciado
-var pontuacao : int = 0 # Pontuacao do nivel
+var pontuacao = 0
+var erros = 0
 
 func _ready():
-	atualiza_pontuacao() # Instancia pontuacao = 0
-	tipos = ['org', 'vid', 'pap'] # Como é fase 1, tem apenas 2 lixeiras
+	tipos = ['org', 'vid', 'met'] # Como é nivel 2, tem apenas 3 lixeiras
 	tiposCompleto = tipos.duplicate() # "bucket" dos tipos de lixo, serve para criar uma aleatoriedade balanceada
 	
 	coorSprite = escolheLixo()
@@ -26,14 +27,15 @@ func _ready():
 	SignalBus.lixo_entrou.connect(_on_lixo_entrou) # Recebe o tipo da lixeira onde o lixo entrou
 
 func _on_lixo_entrou(tipo_lixeira): # Ativa se a lixeira detecta que um lixo entrou
-	if (tipo_lixeira == tipo_lixo):
-		print("LIXO CORRETO")
-		add_pontuacao(10)
-		atualiza_pontuacao()
-	else:
-		print("LIXO INCORRETO")
-		add_pontuacao(-5)
-		atualiza_pontuacao()
+	if (tipo_lixeira == tipo_lixo): # Lixo correto
+		pontuacao += 10
+		pontuacaoLabel.text = "PONTUAÇÃO: \n       " + str(pontuacao)
+	else: # Lixo incorreto
+		erros += 1
+		errosLabel.text = "ERROS: \n   " + str(erros) + "/3"
+		if erros >= 3:
+			get_tree().change_scene_to_file("res://scenes/game_over_2.tscn") # Game over (3 erros)
+			pass # Replace with function body.
 	
 	# Spawna um novo lixo
 	coorSprite = escolheLixo()
@@ -42,7 +44,7 @@ func _on_lixo_entrou(tipo_lixeira): # Ativa se a lixeira detecta que um lixo ent
 	
 	SignalBus.novo_lixo.emit(coorSprite) # Envia as coor do sprite para a cena lixo
 	
-func spawna_lixo(): # Instancia a cena Lixo como filho do nó fase2nivel1
+func spawna_lixo(): # Instancia a cena Lixo como filho do nó fase2nivel2
 	var instancia = lixo_instanciado.instantiate()
 	instancia.position = posicao_instanciamento
 	self.add_child(instancia)
@@ -62,14 +64,7 @@ func escolheLixo(): # Utiliza uma forma pseudo-aleatória para escolher o tipo d
 		i = 0
 	elif lixo == 'vid':
 		i = 1
-	elif lixo == 'pap':
+	elif lixo == 'met':
 		i = 2
 	var j : int = randi_range(0, N_VARIEDADES-1) # Seleciona uma das 3 variedades do lixo escolhido
 	return [i, j]
-
-func atualiza_pontuacao(): # Mostra a pontuacao no label do nivel
-	pontuacao_label.text = "Pontuação: \n" + str(pontuacao)
-
-func add_pontuacao(pontos: int): # Soma a pontuacao do parametro no label
-	pontuacao += pontos
-	atualiza_pontuacao()

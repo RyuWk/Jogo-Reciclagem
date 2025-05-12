@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmbjxa4bswbqc"]
+
+[ext_resource type="Texture2D" uid="uid://bre3x1fo83i0j" path="res://assets/sprites/spr_cena_game_over.png" id="1_3fbne"]
+[ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nl6sw"]
+[ext_resource type="Script" uid="uid://m2aavb4tlhpi" path="res://scripts/goto_button.gd" id="3_nl6sw"]
+
+[node name="game_over_1" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.3, 0.3, 0.3, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.49998, 4.50001)
+texture = ExtResource("1_3fbne")
+
+[node name="gameoverLabel" type="Label" parent="."]
+offset_left = 292.0
+offset_top = 187.0
+offset_right = 430.0
+offset_bottom = 210.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nl6sw")
+theme_override_font_sizes/font_size = 16
+text = "GAME OVER"
+
+[node name="retryLabel" type="Button" parent="."]
+offset_left = 256.0
+offset_top = 301.0
+offset_right = 394.0
+offset_bottom = 325.0
+scale = Vector2(2.45787, 4.45004)
+theme_override_fonts/font = ExtResource("2_nl6sw")
+theme_override_font_sizes/font_size = 8
+text = "Tentar Novamente"
+flat = true
+script = ExtResource("3_nl6sw")
+nomeFase = "fase2nivel2"
+
+[node name="gobackLabel" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = -24.0
+offset_right = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.14485, 4.42725)
+theme_override_fonts/font = ExtResource("2_nl6sw")
+theme_override_font_sizes/font_size = 8
+text = "Voltar ao Menu"
+flat = true
+icon_alignment = 1
+script = ExtResource("3_nl6sw")
+nomeFase = "menu"

@@ -3,7 +3,7 @@ extends Node
 @onready var pontuacaoLabel = $pontuacaoLabel
 @onready var errosLabel = $errosLabel
 const N_VARIEDADES : int = 3 # representa o numero de variedades de cada tipo de lixo
-const NIVEL : int = 1 # vai de 1 a 4
+const NIVEL : int = 3 # vai de 1 a 4
 var tipos #  Array com os tipos de lixo do nivel (nivel 1 = organicos e vidro"
 var tiposCompleto # O mesmo array do acima, mas ele servirá para usar o método pseudo-aleatório do "bucket"
 var coorSprite # Array que representa a posição no spreadsheet do sprite. [0] = tipo, [1] = variedade
@@ -14,7 +14,7 @@ var pontuacao = 0
 var erros = 0
 
 func _ready():
-	tipos = ['org', 'vid'] # Como é nivel 1, tem apenas 2 lixeiras
+	tipos = ['org', 'vid', 'met', 'pap'] # Como é nivel 3, tem apenas 4 lixeiras
 	tiposCompleto = tipos.duplicate() # "bucket" dos tipos de lixo, serve para criar uma aleatoriedade balanceada
 	
 	coorSprite = escolheLixo()
@@ -34,7 +34,7 @@ func _on_lixo_entrou(tipo_lixeira): # Ativa se a lixeira detecta que um lixo ent
 		erros += 1
 		errosLabel.text = "ERROS: \n   " + str(erros) + "/3"
 		if erros >= 3:
-			get_tree().change_scene_to_file("res://scenes/game_over_1.tscn") # Game over (3 erros)
+			get_tree().change_scene_to_file("res://scenes/game_over_3.tscn") # Game over (3 erros)
 			pass # Replace with function body.
 	
 	# Spawna um novo lixo
@@ -44,7 +44,7 @@ func _on_lixo_entrou(tipo_lixeira): # Ativa se a lixeira detecta que um lixo ent
 	
 	SignalBus.novo_lixo.emit(coorSprite) # Envia as coor do sprite para a cena lixo
 	
-func spawna_lixo(): # Instancia a cena Lixo como filho do nó fase2nivel1
+func spawna_lixo(): # Instancia a cena Lixo como filho do nó fase2nivel2
 	var instancia = lixo_instanciado.instantiate()
 	instancia.position = posicao_instanciamento
 	self.add_child(instancia)
@@ -64,5 +64,9 @@ func escolheLixo(): # Utiliza uma forma pseudo-aleatória para escolher o tipo d
 		i = 0
 	elif lixo == 'vid':
 		i = 1
+	elif lixo == 'met':
+		i = 2
+	elif lixo == 'pap':
+		i = 3
 	var j : int = randi_range(0, N_VARIEDADES-1) # Seleciona uma das 3 variedades do lixo escolhido
 	return [i, j]

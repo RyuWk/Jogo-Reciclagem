@@ -6,16 +6,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stlga"]
 size = Vector2(26, 20)
 
-[node name="Lixeira_Organica" type="Node2D"]
+[node name="lixeira_papel" type="Node2D"]
 
-[node name="LixeiraOrganica" type="Area2D" parent="."]
+[node name="lixeiraPapel" type="Area2D" parent="."]
 script = ExtResource("1_xdfpu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraOrganica"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lixeiraPapel"]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_stlga")
 
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraOrganica"]
+[node name="Sprite2D" type="Sprite2D" parent="lixeiraPapel"]
 texture = ExtResource("2_yhkp6")
 region_enabled = true
 region_rect = Rect2(96, 0, 32, 32)

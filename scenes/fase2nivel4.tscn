@@ -1,58 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://dctltg4i7qy2c"]
+[gd_scene load_steps=9 format=3 uid="uid://gjvnodkwmnrb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgnxh"]
+[ext_resource type="Script" uid="uid://dgttak1xawnvx" path="res://scripts/spawna_verifica_lixo_n4.gd" id="1_egrx8"]
+[ext_resource type="Texture2D" uid="uid://b3b77dp6p0yl1" path="res://assets/sprites/spr_cena_sem_lixos.png" id="2_egrx8"]
+[ext_resource type="PackedScene" uid="uid://c4wdb6b5y7s02" path="res://scenes/lixeira_metal.tscn" id="3_hmrmb"]
+[ext_resource type="PackedScene" uid="uid://qtdy0k3l654q" path="res://scenes/lixeira_vidro.tscn" id="4_5h3xt"]
+[ext_resource type="PackedScene" uid="uid://dmjiaxqgfd160" path="res://scenes/lixeira_organica.tscn" id="5_s88fx"]
+[ext_resource type="PackedScene" uid="uid://8vd8p25rb8ku" path="res://scenes/lixeira_papel.tscn" id="6_185pv"]
+[ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_ry6ur"]
+[ext_resource type="PackedScene" uid="uid://be2hbcwjuc7f2" path="res://scenes/lixeira_plastico.tscn" id="8_egrx8"]
 
-[node name="fase4" type="Node2D"]
+[node name="fase2nivel2" type="Node"]
+script = ExtResource("1_egrx8")
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+[node name="background" type="TextureRect" parent="."]
+offset_right = 256.0
+offset_bottom = 144.0
+scale = Vector2(4.49996, 4.49995)
+texture = ExtResource("2_egrx8")
 
-[node name="background" type="TextureRect" parent="BackgroundLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
-metadata/_edit_use_anchors_ = true
+[node name="lixeira_plastico" parent="." instance=ExtResource("8_egrx8")]
+z_index = 1
+position = Vector2(320, 550)
+scale = Vector2(4, 4)
 
-[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+[node name="lixeira_metal" parent="." instance=ExtResource("3_hmrmb")]
+top_level = true
+z_index = 1
+position = Vector2(448, 550)
+scale = Vector2(4, 4)
 
-[node name="InterfaceUsuario" type="Node" parent="InterfaceLayer"]
+[node name="lixeira_vidro" parent="." instance=ExtResource("4_5h3xt")]
+top_level = true
+z_index = 1
+position = Vector2(704, 550)
+scale = Vector2(4, 4)
 
-[node name="LixeiraOrganica" type="StaticBody2D" parent="."]
+[node name="lixeira_organica" parent="." instance=ExtResource("5_s88fx")]
+top_level = true
+z_index = 1
+position = Vector2(576, 550)
+scale = Vector2(4, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraOrganica"]
-shape = SubResource("RectangleShape2D_sgnxh")
+[node name="lixeira_papel" parent="." instance=ExtResource("6_185pv")]
+z_index = 1
+position = Vector2(832, 550)
+scale = Vector2(4, 4)
 
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraOrganica"]
+[node name="errosLabel" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 168.0
+offset_bottom = 35.0
+scale = Vector2(0.909729, 1.14774)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ry6ur")
+theme_override_font_sizes/font_size = 40
+text = "ERROS:
+   0/3"
 
-[node name="LixeiraPlastico" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraPlastico"]
-shape = SubResource("RectangleShape2D_sgnxh")
-
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraPlastico"]
-
-[node name="LixeiraVidro" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVidro"]
-shape = SubResource("RectangleShape2D_sgnxh")
-
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraVidro"]
-
-[node name="LixeiraPapel" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraPapel"]
-shape = SubResource("RectangleShape2D_sgnxh")
-
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraPapel"]
-
-[node name="LixeiraMetal" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraMetal"]
-shape = SubResource("RectangleShape2D_sgnxh")
-
-[node name="Sprite2D" type="Sprite2D" parent="LixeiraMetal"]
-
-[node name="Lixo" type="CharacterBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo"]
-shape = SubResource("RectangleShape2D_sgnxh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lixo"]
+[node name="pontuacaoLabel" type="Label" parent="."]
+offset_left = 747.0
+offset_top = 2.0
+offset_right = 1152.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("7_ry6ur")
+theme_override_font_sizes/font_size = 40
+text = "PONTUAÇÃO: 
+         0"
