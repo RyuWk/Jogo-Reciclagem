@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qtdy0k3l654q"]
+
+[ext_resource type="Script" uid="uid://dvwn7bjisdbpg" path="res://scripts/lixeira_vidro.gd" id="1_3502t"]
+[ext_resource type="Texture2D" uid="uid://kw4fmokq25nx" path="res://assets/sprites/spr_lixeiras.png" id="1_txx07"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3502t"]
+size = Vector2(26, 29)
+
+[node name="lixeira_vidro" type="Node2D"]
+
+[node name="LixeiraVidro" type="Area2D" parent="."]
+script = ExtResource("1_3502t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVidro"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_3502t")
+
+[node name="Sprite2D" type="Sprite2D" parent="LixeiraVidro"]
+texture = ExtResource("1_txx07")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
