@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca85u6ft01mn2"]
+[gd_scene load_steps=4 format=3 uid="uid://ca85u6ft01mn2"]
 
-[ext_resource type="Texture2D" uid="uid://cao64hfh6xsgn" path="res://assets/backgrounds/fases.png" id="1_ajcdm"]
+[ext_resource type="Texture2D" uid="uid://d2wj1onahcwow" path="res://assets/backgrounds/fases2.png" id="1_senh5"]
 [ext_resource type="PackedScene" uid="uid://cq2e5uh8prbrh" path="res://scenes/botao_fases.tscn" id="2_3cmpl"]
 [ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ewvwu"]
-[ext_resource type="PackedScene" uid="uid://bku3uggp7o2r6" path="res://scenes/fase1.tscn" id="3_senh5"]
 
 [node name="fases" type="Control"]
 layout_mode = 3
@@ -20,7 +19,7 @@ anchor_bottom = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ajcdm")
+texture = ExtResource("1_senh5")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -28,9 +27,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -391.0
-offset_top = 41.0
+offset_top = -10.0
 offset_right = 391.0
-offset_bottom = 158.0
+offset_bottom = 107.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -44,22 +43,9 @@ vertical_alignment = 1
 [node name="botaoFases" type="Node" parent="."]
 
 [node name="botaoFase1" parent="botaoFases" instance=ExtResource("2_3cmpl")]
-position = Vector2(206, 315)
+position = Vector2(371, 446)
 nomeFase = "fase1"
 
 [node name="botaoFase2" parent="botaoFases" instance=ExtResource("2_3cmpl")]
-position = Vector2(462, 321)
+position = Vector2(756, 454)
 nomeFase = "fase2"
-
-[node name="botaoFase3" parent="botaoFases" instance=ExtResource("2_3cmpl")]
-position = Vector2(733, 310)
-nomeFase = "fase3"
-
-[node name="botaoFase4" parent="botaoFases" instance=ExtResource("2_3cmpl")]
-position = Vector2(1014, 310)
-nomeFase = "fase4"
-
-[node name="fases" type="Node" parent="."]
-
-[node name="fase1" parent="fases" instance=ExtResource("3_senh5")]
-visible = false

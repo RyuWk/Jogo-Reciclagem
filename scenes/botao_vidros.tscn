@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxiqoaryr0mqw"]
+
+[ext_resource type="Script" uid="uid://dpw77pp0ftr1l" path="res://scripts/botao_vidros.gd" id="1_towv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_towv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nejk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_58xaw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ub3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fo36p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4y6a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxamb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qarlc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj42w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6503n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kjis"]
+
+[node name="botao_vidros" type="Node2D"]
+script = ExtResource("1_towv3")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_towv3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_nejk3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_58xaw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_7ub3d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_fo36p")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_n4y6a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rxamb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_qarlc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sj42w")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6503n")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0kjis")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
