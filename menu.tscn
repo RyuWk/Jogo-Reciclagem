@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://drj4em1ecndy2"]
+[gd_scene load_steps=7 format=3 uid="uid://c61q3kt1v8jlv"]
 
 [ext_resource type="Texture2D" uid="uid://dnx7lt4ghhby7" path="res://assets/backgrounds/menu3.png" id="1_con2f"]
 [ext_resource type="Script" uid="uid://d0kg66sb7h4rg" path="res://scripts/menu.gd" id="1_mhnvy"]
 [ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_mhnvy"]
 [ext_resource type="FontFile" uid="uid://cm7ntltq4yysb" path="res://assets/fonts/PixelOperator8.ttf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://bjynpjts7ys77" path="res://assets/sprites/sound2.png" id="5_g3eks"]
-[ext_resource type="Script" uid="uid://cdf50v3rw433x" path="res://scripts/musica.gd" id="6_13sgg"]
 [ext_resource type="Texture2D" uid="uid://cngpidr7e2ujx" path="res://assets/sprites/mic2.png" id="6_v86rl"]
-[ext_resource type="Script" uid="uid://ctf7ufi1cjqq5" path="res://scripts/narracao.gd" id="8_i6lef"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -61,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = 12.0
-offset_right = 136.0
-offset_bottom = 88.0
+offset_left = -126.5
+offset_top = 26.0
+offset_right = 126.5
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_4ytvr")
@@ -74,18 +72,30 @@ icon_alignment = 1
 
 [node name="config" type="Node" parent="."]
 
-[node name="musica" type="Node" parent="config"]
+[node name="narracao2" type="Label" parent="config"]
+anchors_preset = -1
+anchor_left = 0.584201
+anchor_top = 0.79784
+anchor_right = 0.764757
+anchor_bottom = 0.839506
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mhnvy")
+theme_override_font_sizes/font_size = 26
+text = "NARRAÇÃO"
+metadata/_edit_use_anchors_ = true
 
-[node name="musica2" type="Label" parent="config/musica"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -272.0
-offset_top = -88.0
-offset_right = -119.0
-offset_bottom = -61.0
+[node name="narracao" type="Sprite2D" parent="config"]
+texture_filter = 1
+position = Vector2(640, 533)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_v86rl")
+
+[node name="musica2" type="Label" parent="config"]
+anchors_preset = -1
+anchor_left = 0.277778
+anchor_top = 0.79784
+anchor_right = 0.41059
+anchor_bottom = 0.839506
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -95,73 +105,10 @@ text = "MÚSICA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="musica" type="Sprite2D" parent="config/musica/musica2"]
+[node name="musica" type="Sprite2D" parent="config"]
 texture_filter = 1
-position = Vector2(208, 13.0001)
+position = Vector2(520, 533)
 scale = Vector2(5.0625, 5.0625)
 texture = ExtResource("5_g3eks")
-script = ExtResource("6_13sgg")
-
-[node name="jogar2" type="Button" parent="config/musica/musica2/musica"]
-anchors_preset = -1
-anchor_left = -0.09375
-anchor_top = -0.09375
-anchor_right = 1.09375
-anchor_bottom = 1.09375
-offset_left = -8.0
-offset_top = -8.0
-offset_right = -8.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4ytvr")
-theme_override_font_sizes/font_size = 56
-flat = true
-icon_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="narracao" type="Node" parent="config"]
-
-[node name="narracao2" type="Label" parent="config/narracao"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 96.0
-offset_top = -88.0
-offset_right = 304.0
-offset_bottom = -61.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_mhnvy")
-theme_override_font_sizes/font_size = 26
-text = "NARRAÇÃO"
-
-[node name="narracao" type="Sprite2D" parent="config/narracao/narracao2"]
-texture_filter = 1
-position = Vector2(-44.0005, 13.0001)
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("6_v86rl")
-script = ExtResource("8_i6lef")
-
-[node name="jogar3" type="Button" parent="config/narracao/narracao2/narracao"]
-anchors_preset = -1
-anchor_left = -0.0625
-anchor_top = -0.147059
-anchor_right = 1.0625
-anchor_bottom = 1.14706
-offset_left = -8.0
-offset_top = -8.5
-offset_right = -8.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_4ytvr")
-theme_override_font_sizes/font_size = 56
-flat = true
-icon_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="jogar" to="." method="_on_button_pressed"]
