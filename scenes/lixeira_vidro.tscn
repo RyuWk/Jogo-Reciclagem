@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kw4fmokq25nx" path="res://assets/sprites/spr_lixeiras.png" id="1_txx07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3502t"]
-size = Vector2(26, 20)
+size = Vector2(26, 29)
 
 [node name="lixeira_vidro" type="Node2D"]
 
@@ -12,7 +12,7 @@ size = Vector2(26, 20)
 script = ExtResource("1_3502t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVidro"]
-position = Vector2(0, 3)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_3502t")
 
 [node name="Sprite2D" type="Sprite2D" parent="LixeiraVidro"]

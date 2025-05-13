@@ -44,15 +44,18 @@ vertical_alignment = 1
 
 [node name="botaoFase1" parent="botaoFases" instance=ExtResource("2_3cmpl")]
 position = Vector2(206, 315)
+nomeFase = "fase2nivel1"
 
 [node name="botaoFase2" parent="botaoFases" instance=ExtResource("2_3cmpl")]
 position = Vector2(462, 321)
-nomeFase = "F2niveis"
+nomeFase = "fase2nivel2"
 
 [node name="botaoFase3" parent="botaoFases" instance=ExtResource("2_3cmpl")]
 position = Vector2(733, 310)
+nomeFase = "fase2nivel3"
 
 [node name="botaoFase4" parent="botaoFases" instance=ExtResource("2_3cmpl")]
 position = Vector2(1014, 310)
+nomeFase = "fase2nivel4"
 
 [node name="fases" type="Node" parent="."]

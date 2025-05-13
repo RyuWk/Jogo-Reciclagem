@@ -1,63 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyrpbvrq3yvcq"]
+[gd_scene load_steps=2 format=3 uid="uid://c46fut728uly7"]
 
-[ext_resource type="Script" uid="uid://dbh02jf2f1tk0" path="res://scripts/spawna_verifica_lixo_n3.gd" id="1_3a5tx"]
-[ext_resource type="Texture2D" uid="uid://b3b77dp6p0yl1" path="res://assets/sprites/spr_cena_sem_lixos.png" id="2_3a5tx"]
-[ext_resource type="PackedScene" uid="uid://c4wdb6b5y7s02" path="res://scenes/lixeira_metal.tscn" id="3_l02f2"]
-[ext_resource type="PackedScene" uid="uid://qtdy0k3l654q" path="res://scenes/lixeira_vidro.tscn" id="4_om4gk"]
-[ext_resource type="PackedScene" uid="uid://dmjiaxqgfd160" path="res://scenes/lixeira_organica.tscn" id="5_7x7w2"]
-[ext_resource type="PackedScene" uid="uid://8vd8p25rb8ku" path="res://scenes/lixeira_papel.tscn" id="6_3a5tx"]
-[ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_lr5c5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_us08o"]
 
-[node name="fase2nivel2" type="Node"]
-script = ExtResource("1_3a5tx")
+[node name="fase3" type="Node2D"]
 
-[node name="background" type="TextureRect" parent="."]
-offset_right = 256.0
-offset_bottom = 144.0
-scale = Vector2(4.49996, 4.49995)
-texture = ExtResource("2_3a5tx")
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
 
-[node name="lixeira_metal" parent="." instance=ExtResource("3_l02f2")]
-top_level = true
-z_index = 1
-position = Vector2(384, 550)
-scale = Vector2(4, 4)
+[node name="background" type="TextureRect" parent="BackgroundLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="lixeira_vidro" parent="." instance=ExtResource("4_om4gk")]
-top_level = true
-z_index = 1
-position = Vector2(640, 550)
-scale = Vector2(4, 4)
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
 
-[node name="lixeira_organica" parent="." instance=ExtResource("5_7x7w2")]
-top_level = true
-z_index = 1
-position = Vector2(514, 550)
-scale = Vector2(4, 4)
+[node name="InterfaceUsuario" type="Node" parent="InterfaceLayer"]
 
-[node name="lixeira_papel" parent="." instance=ExtResource("6_3a5tx")]
-z_index = 1
-position = Vector2(768, 550)
-scale = Vector2(4, 4)
+[node name="LixeiraOrganica" type="StaticBody2D" parent="."]
 
-[node name="errosLabel" type="Label" parent="."]
-offset_left = 14.0
-offset_top = 12.0
-offset_right = 168.0
-offset_bottom = 35.0
-scale = Vector2(0.909729, 1.14774)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_lr5c5")
-theme_override_font_sizes/font_size = 40
-text = "ERROS:
-   0/3"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraOrganica"]
+shape = SubResource("RectangleShape2D_us08o")
 
-[node name="pontuacaoLabel" type="Label" parent="."]
-offset_left = 747.0
-offset_top = 2.0
-offset_right = 1152.0
-offset_bottom = 85.0
-theme_override_fonts/font = ExtResource("6_lr5c5")
-theme_override_font_sizes/font_size = 40
-text = "PONTUAÇÃO: 
-         0"
+[node name="Sprite2D" type="Sprite2D" parent="LixeiraOrganica"]
+
+[node name="LixeiraPlastico" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraPlastico"]
+shape = SubResource("RectangleShape2D_us08o")
+
+[node name="Sprite2D" type="Sprite2D" parent="LixeiraPlastico"]
+
+[node name="LixeiraVidro" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraVidro"]
+shape = SubResource("RectangleShape2D_us08o")
+
+[node name="Sprite2D" type="Sprite2D" parent="LixeiraVidro"]
+
+[node name="LixeiraPapel" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LixeiraPapel"]
+shape = SubResource("RectangleShape2D_us08o")
+
+[node name="Sprite2D" type="Sprite2D" parent="LixeiraPapel"]
+
+[node name="Lixo" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo"]
+shape = SubResource("RectangleShape2D_us08o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo"]

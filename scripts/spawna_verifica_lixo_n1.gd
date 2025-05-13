@@ -1,7 +1,6 @@
 extends Node
 
-@onready var pontuacaoLabel = $pontuacaoLabel
-@onready var errosLabel = $errosLabel
+@export var pontuacao_label : Label # Representa o marcador que dita a pontuacao
 const N_VARIEDADES : int = 3 # representa o numero de variedades de cada tipo de lixo
 const NIVEL : int = 1 # vai de 1 a 4
 var tipos #  Array com os tipos de lixo do nivel (nivel 1 = organicos e vidro"
@@ -10,11 +9,11 @@ var coorSprite # Array que representa a posição no spreadsheet do sprite. [0] 
 var tipo_lixo : String # Salva o tipo de lixo que está caindo ('org', 'vid', etc)
 var posicao_instanciamento := Vector2(-72, -32) # Local de spawn, deve ser editado dependendo do nivel
 var lixo_instanciado = preload("res://scenes/lixo.tscn") # Salva a cena do lixo a ser instanciado
-var pontuacao = 0
-var erros = 0
+var pontuacao : int = 0 # Pontuacao do nivel
 
 func _ready():
-	tipos = ['org', 'vid'] # Como é nivel 1, tem apenas 2 lixeiras
+	atualiza_pontuacao() # Instancia pontuacao = 0
+	tipos = ['org', 'vid'] # Como é fase 1, tem apenas 2 lixeiras
 	tiposCompleto = tipos.duplicate() # "bucket" dos tipos de lixo, serve para criar uma aleatoriedade balanceada
 	
 	coorSprite = escolheLixo()
@@ -27,15 +26,14 @@ func _ready():
 	SignalBus.lixo_entrou.connect(_on_lixo_entrou) # Recebe o tipo da lixeira onde o lixo entrou
 
 func _on_lixo_entrou(tipo_lixeira): # Ativa se a lixeira detecta que um lixo entrou
-	if (tipo_lixeira == tipo_lixo): # Lixo correto
-		pontuacao += 10
-		pontuacaoLabel.text = "PONTUAÇÃO: \n       " + str(pontuacao)
-	else: # Lixo incorreto
-		erros += 1
-		errosLabel.text = "ERROS: \n   " + str(erros) + "/3"
-		if erros >= 3:
-			get_tree().change_scene_to_file("res://scenes/game_over_1.tscn") # Game over (3 erros)
-			pass # Replace with function body.
+	if (tipo_lixeira == tipo_lixo):
+		print("LIXO CORRETO")
+		add_pontuacao(10)
+		atualiza_pontuacao()
+	else:
+		print("LIXO INCORRETO")
+		add_pontuacao(-5)
+		atualiza_pontuacao()
 	
 	# Spawna um novo lixo
 	coorSprite = escolheLixo()
@@ -66,3 +64,10 @@ func escolheLixo(): # Utiliza uma forma pseudo-aleatória para escolher o tipo d
 		i = 1
 	var j : int = randi_range(0, N_VARIEDADES-1) # Seleciona uma das 3 variedades do lixo escolhido
 	return [i, j]
+
+func atualiza_pontuacao(): # Mostra a pontuacao no label do nivel
+	pontuacao_label.text = "Pontuação: \n" + str(pontuacao)
+
+func add_pontuacao(pontos: int): # Soma a pontuacao do parametro no label
+	pontuacao += pontos
+	atualiza_pontuacao()

@@ -1,29 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://un46ceprxana"]
+[gd_scene load_steps=8 format=3 uid="uid://un46ceprxana"]
 
-[ext_resource type="Script" uid="uid://b2ljn1cln526w" path="res://scripts/spawna_verifica_lixo_n2.gd" id="1_qpvpq"]
-[ext_resource type="Texture2D" uid="uid://b3b77dp6p0yl1" path="res://assets/sprites/spr_cena_sem_lixos.png" id="2_ivoct"]
-[ext_resource type="PackedScene" uid="uid://c4wdb6b5y7s02" path="res://scenes/lixeira_metal.tscn" id="3_yfsb1"]
+[ext_resource type="Texture2D" uid="uid://dnx7lt4ghhby7" path="res://assets/backgrounds/menu3.png" id="1_qpvpq"]
+[ext_resource type="Script" uid="uid://b2ljn1cln526w" path="res://scripts/spawna_verifica_lixo_n2.gd" id="1_yfsb1"]
+[ext_resource type="Texture2D" uid="uid://0x52uebvq0al" path="res://assets/sprites/spr_cena.png" id="2_yfsb1"]
+[ext_resource type="PackedScene" uid="uid://8vd8p25rb8ku" path="res://scenes/lixeira_papel.tscn" id="3_ywbc3"]
 [ext_resource type="PackedScene" uid="uid://qtdy0k3l654q" path="res://scenes/lixeira_vidro.tscn" id="4_sm733"]
 [ext_resource type="PackedScene" uid="uid://dmjiaxqgfd160" path="res://scenes/lixeira_organica.tscn" id="5_gepc5"]
 [ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_afc6u"]
 
 [node name="fase2nivel2" type="Node"]
-script = ExtResource("1_qpvpq")
+script = ExtResource("1_yfsb1")
+
+[node name="backgroundInterface" type="TextureRect" parent="."]
+modulate = Color(0.17, 0.17, 0.17, 1)
+offset_right = 1153.0
+offset_bottom = 647.0
+texture = ExtResource("1_qpvpq")
 
 [node name="background" type="TextureRect" parent="."]
-offset_right = 256.0
-offset_bottom = 144.0
-scale = Vector2(4.49996, 4.49995)
-texture = ExtResource("2_ivoct")
+offset_left = 234.0
+offset_right = 918.0
+offset_bottom = 648.0
+texture = ExtResource("2_yfsb1")
+expand_mode = 1
 
-[node name="lixeira_metal" parent="." instance=ExtResource("3_yfsb1")]
-top_level = true
-z_index = 1
+[node name="lixeira_papel" parent="." instance=ExtResource("3_ywbc3")]
 position = Vector2(448, 550)
 scale = Vector2(4, 4)
 
 [node name="lixeira_vidro" parent="." instance=ExtResource("4_sm733")]
-top_level = true
+visibility_layer = 3
 z_index = 1
 position = Vector2(704, 550)
 scale = Vector2(4, 4)
@@ -34,24 +40,11 @@ z_index = 1
 position = Vector2(576, 550)
 scale = Vector2(4, 4)
 
-[node name="errosLabel" type="Label" parent="."]
-offset_left = 14.0
-offset_top = 12.0
-offset_right = 168.0
-offset_bottom = 35.0
-scale = Vector2(0.909729, 1.14774)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
+[node name="pontuacao2" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 924.0
+offset_top = 8.0
+offset_right = 964.0
+offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("6_afc6u")
-theme_override_font_sizes/font_size = 40
-text = "ERROS:
-   0/3"
-
-[node name="pontuacaoLabel" type="Label" parent="."]
-offset_left = 747.0
-offset_top = 2.0
-offset_right = 1152.0
-offset_bottom = 85.0
-theme_override_fonts/font = ExtResource("6_afc6u")
-theme_override_font_sizes/font_size = 40
-text = "PONTUAÇÃO: 
-         0"
+theme_override_font_sizes/font_size = 22

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 @export var nomeFase : String
 
 func _on_button_pressed() -> void:
