@@ -1,0 +1,69 @@
+[gd_scene load_steps=13 format=3 uid="uid://bea62w0v1ffq0"]
+
+[sub_resource type="GDScript" id="GDScript_8byjw"]
+script/source = "extends Node2D
+enum TRASH_TYPE {ORGANIC, GLASS, METAL, PAPER, PLASTIC}
+@export var trash_type = TRASH_TYPE.ORGANIC
+
+func _ready():
+	add_to_group(\"trash\")
+	add_to_group(\"trash_%s\" % trash_type)
+
+func _on_button_pressed() -> void:
+	get_parent().get_parent().get_parent()._on_trash_clicked(trash_type)
+	get_parent().queue_free()
+	queue_free()
+	pass
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hj8l2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojj4c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bem1g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t50fc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3dgyt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60nmj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuy1x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8byjw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xyc4p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j71or"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_th5ij"]
+
+[node name="Botao_organicos" type="Node2D"]
+script = SubResource("GDScript_8byjw")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -7.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hj8l2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ojj4c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bem1g")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_t50fc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3dgyt")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_60nmj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kuy1x")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8byjw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xyc4p")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_j71or")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_th5ij")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,316 @@
+[gd_scene load_steps=30 format=3 uid="uid://bku3uggp7o2r6"]
+
+[ext_resource type="Script" uid="uid://coakkc4wcvqjg" path="res://scripts/fase_1.gd" id="1_q0yem"]
+[ext_resource type="Script" uid="uid://cj6r12u7f3d6x" path="res://scripts/completion_popup.gd" id="2_colb1"]
+[ext_resource type="Texture2D" uid="uid://kckabjg7pmcx" path="res://assets/backgrounds/spr_cena.png" id="2_e36tv"]
+[ext_resource type="FontFile" uid="uid://blfxya0tatlky" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_v68hw"]
+[ext_resource type="Texture2D" uid="uid://cyad83wiyy38k" path="res://assets/sprites/garrafaVidro.png" id="4_5ca1b"]
+[ext_resource type="Texture2D" uid="uid://ey3nanf242ss" path="res://assets/sprites/banana.png" id="4_bdrpm"]
+[ext_resource type="Texture2D" uid="uid://ke47qclamu1g" path="res://assets/sprites/lixeiraOrganica.png" id="4_brbom"]
+[ext_resource type="Texture2D" uid="uid://dxwlcgcwl8eh1" path="res://assets/sprites/latinha.png" id="4_hrl3v"]
+[ext_resource type="Texture2D" uid="uid://b1kigpdg5x07d" path="res://assets/sprites/peixe.png" id="5_rjo8m"]
+[ext_resource type="Texture2D" uid="uid://cjr26mj30uhw7" path="res://assets/sprites/lixeiraVidro.png" id="5_xd57v"]
+[ext_resource type="Texture2D" uid="uid://b72nfj6pb2t00" path="res://assets/sprites/cenoura.png" id="6_6skwa"]
+[ext_resource type="Texture2D" uid="uid://bkv4rr6vwb8m5" path="res://assets/sprites/lixeiraMetal.png" id="6_cii6x"]
+[ext_resource type="Texture2D" uid="uid://bsrqxtgkpq17q" path="res://assets/sprites/latinha2.png" id="7_8noer"]
+[ext_resource type="Texture2D" uid="uid://dur0v6ayommio" path="res://assets/sprites/lixeiraPapel.png" id="7_ybjvo"]
+[ext_resource type="Texture2D" uid="uid://gutfbt2rrwxb" path="res://assets/sprites/papel.png" id="8_3ywvp"]
+[ext_resource type="Texture2D" uid="uid://brokjm07mlqsn" path="res://assets/sprites/lixeiraPlastico.png" id="8_colb1"]
+[ext_resource type="Texture2D" uid="uid://bpjuhq2tlh3nh" path="res://assets/sprites/garrafaVidro2.png" id="8_ybt44"]
+[ext_resource type="Texture2D" uid="uid://c78ckq5g4r36m" path="res://assets/sprites/caneca.png" id="9_4vb8c"]
+[ext_resource type="Texture2D" uid="uid://bcvmpvobcsbr5" path="res://assets/sprites/caixa.png" id="9_rjo8m"]
+[ext_resource type="Texture2D" uid="uid://ckgr6g4tr36sk" path="res://assets/sprites/garrafaPlastico.png" id="10_6skwa"]
+[ext_resource type="PackedScene" uid="uid://bea62w0v1ffq0" path="res://scenes/botao_organicos.tscn" id="10_e36tv"]
+[ext_resource type="Texture2D" uid="uid://kyk1dahtyrv3" path="res://assets/sprites/sacolaPlastico.png" id="11_ybt44"]
+[ext_resource type="Texture2D" uid="uid://derlw450bc5aq" path="res://assets/sprites/garrafaPlastico2.png" id="12_4vb8c"]
+[ext_resource type="Texture2D" uid="uid://5ma4ct82cc3" path="res://assets/sprites/colher.png" id="12_v68hw"]
+[ext_resource type="PackedScene" uid="uid://bxiqoaryr0mqw" path="res://scenes/botao_vidros.tscn" id="14_brbom"]
+[ext_resource type="Texture2D" uid="uid://c8kdrfanedn4b" path="res://assets/sprites/papel2.png" id="18_wgrgd"]
+[ext_resource type="PackedScene" uid="uid://cl4opfscrgnov" path="res://scenes/botao_metais.tscn" id="18_xd57v"]
+[ext_resource type="PackedScene" uid="uid://bs2hhchd2t0dp" path="res://scenes/botao_papeis.tscn" id="22_ybjvo"]
+[ext_resource type="PackedScene" uid="uid://ssp4a8s8iaaw" path="res://scenes/botao_plasticos.tscn" id="26_colb1"]
+
+[node name="fase1" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_q0yem")
+
+[node name="CompletionPopup" type="CanvasLayer" parent="."]
+script = ExtResource("2_colb1")
+
+[node name="DarkenBackground" type="ColorRect" parent="CompletionPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.709804)
+
+[node name="CompletionPanel" type="Panel" parent="CompletionPopup"]
+modulate = Color(0.247059, 0.729412, 0.247059, 1)
+z_index = 1
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CompletionPopup/CompletionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1.03481e-06, 0.720339, 1.54018e-06, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_v68hw")
+theme_override_font_sizes/font_size = 31
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CompletionPopup/CompletionPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -56.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_v68hw")
+text = "voltar ao menu"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_e36tv")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 312.0
+offset_top = 192.0
+offset_right = 840.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_v68hw")
+theme_override_font_sizes/font_size = 31
+metadata/_edit_use_anchors_ = true
+
+[node name="Lixeiras" type="Node" parent="."]
+
+[node name="LixeiraOrganica" type="Sprite2D" parent="Lixeiras"]
+texture_filter = 1
+position = Vector2(66, 516)
+scale = Vector2(4, 4)
+texture = ExtResource("4_brbom")
+
+[node name="LixeiraVidro" type="Sprite2D" parent="Lixeiras"]
+texture_filter = 1
+position = Vector2(174, 516)
+scale = Vector2(4, 4)
+texture = ExtResource("5_xd57v")
+
+[node name="LixeiraMetal" type="Sprite2D" parent="Lixeiras"]
+texture_filter = 1
+position = Vector2(281, 516)
+scale = Vector2(4, 4)
+texture = ExtResource("6_cii6x")
+
+[node name="LixeiraPapel" type="Sprite2D" parent="Lixeiras"]
+texture_filter = 1
+position = Vector2(388, 516)
+scale = Vector2(4, 4)
+texture = ExtResource("7_ybjvo")
+
+[node name="LixeiraPlastico" type="Sprite2D" parent="Lixeiras"]
+texture_filter = 1
+position = Vector2(495, 516)
+scale = Vector2(4, 4)
+texture = ExtResource("8_colb1")
+
+[node name="lixo organicos" type="Node" parent="."]
+
+[node name="Cenoura" type="Sprite2D" parent="lixo organicos"]
+texture_filter = 1
+position = Vector2(265, 609)
+scale = Vector2(4.615, 4.615)
+texture = ExtResource("6_6skwa")
+
+[node name="Botao_organicos" parent="lixo organicos/Cenoura" instance=ExtResource("10_e36tv")]
+
+[node name="Peixe" type="Sprite2D" parent="lixo organicos"]
+texture_filter = 1
+position = Vector2(426, 414)
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("5_rjo8m")
+
+[node name="Botao_organicos2" parent="lixo organicos/Peixe" instance=ExtResource("10_e36tv")]
+position = Vector2(1.76989, -3.53986)
+scale = Vector2(8.16814, 8.16814)
+
+[node name="Banana" type="Sprite2D" parent="lixo organicos"]
+texture_filter = 1
+position = Vector2(430, 574)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("4_bdrpm")
+
+[node name="Botao_organicos3" parent="lixo organicos/Banana" instance=ExtResource("10_e36tv")]
+position = Vector2(-1.14285, 6.2857)
+scale = Vector2(2.63714, 2.63714)
+
+[node name="lixo vidro" type="Node" parent="."]
+
+[node name="GarrafaVidro" type="Sprite2D" parent="lixo vidro"]
+texture_filter = 1
+position = Vector2(639, 494)
+scale = Vector2(0.862188, 0.830938)
+texture = ExtResource("4_5ca1b")
+
+[node name="botao_vidros" parent="lixo vidro/GarrafaVidro" instance=ExtResource("14_brbom")]
+position = Vector2(-1.15988, 3.61036)
+scale = Vector2(1.71656, 1.78112)
+
+[node name="GarrafaVidro2" type="Sprite2D" parent="lixo vidro"]
+texture_filter = 1
+position = Vector2(915, 534)
+scale = Vector2(5.535, 5.535)
+texture = ExtResource("8_ybt44")
+
+[node name="botao_vidros2" parent="lixo vidro/GarrafaVidro2" instance=ExtResource("14_brbom")]
+position = Vector2(-0.361326, 0.542006)
+scale = Vector2(0.267389, 0.267389)
+
+[node name="Caneca" type="Sprite2D" parent="lixo vidro"]
+texture_filter = 1
+position = Vector2(295, 430)
+rotation = 0.120428
+scale = Vector2(2.835, 2.835)
+texture = ExtResource("9_4vb8c")
+
+[node name="botao_vidros3" parent="lixo vidro/Caneca" instance=ExtResource("14_brbom")]
+position = Vector2(-0.827488, -0.96579)
+rotation = -0.120428
+scale = Vector2(0.522046, 0.522046)
+
+[node name="lixo metal" type="Node" parent="."]
+
+[node name="Latinha" type="Sprite2D" parent="lixo metal"]
+texture_filter = 1
+position = Vector2(55, 605)
+scale = Vector2(1.41, 1.41)
+texture = ExtResource("4_hrl3v")
+flip_h = true
+
+[node name="botao_metais" parent="lixo metal/Latinha" instance=ExtResource("18_xd57v")]
+position = Vector2(3.5461, 5.67376)
+
+[node name="Latinha2" type="Sprite2D" parent="lixo metal"]
+texture_filter = 1
+position = Vector2(603, 618)
+scale = Vector2(4, 4)
+texture = ExtResource("7_8noer")
+
+[node name="botao_metais2" parent="lixo metal/Latinha2" instance=ExtResource("18_xd57v")]
+position = Vector2(-0.5, 0.75)
+scale = Vector2(0.3525, 0.3525)
+
+[node name="Colher" type="Sprite2D" parent="lixo metal"]
+texture_filter = 1
+position = Vector2(1065, 423)
+scale = Vector2(3.28, 3.28)
+texture = ExtResource("12_v68hw")
+
+[node name="botao_metais3" parent="lixo metal/Colher" instance=ExtResource("18_xd57v")]
+position = Vector2(-0.304886, -0.609768)
+scale = Vector2(0.429878, 0.429878)
+
+[node name="lixo papel" type="Node" parent="."]
+
+[node name="Papel" type="Sprite2D" parent="lixo papel"]
+texture_filter = 1
+position = Vector2(1107, 475)
+scale = Vector2(4, 4)
+texture = ExtResource("8_3ywvp")
+
+[node name="botao_papeis" parent="lixo papel/Papel" instance=ExtResource("22_ybjvo")]
+
+[node name="Papel2" type="Sprite2D" parent="lixo papel"]
+texture_filter = 1
+position = Vector2(19, 417)
+rotation = -0.837758
+scale = Vector2(2.11, 2.11)
+texture = ExtResource("18_wgrgd")
+
+[node name="botao_papeis2" parent="lixo papel/Papel2" instance=ExtResource("22_ybjvo")]
+position = Vector2(-0.704376, 0.634247)
+rotation = 0.837758
+scale = Vector2(1.89573, 1.89573)
+
+[node name="Caixa" type="Sprite2D" parent="lixo papel"]
+texture_filter = 1
+position = Vector2(1050, 576)
+scale = Vector2(2.55, 2.55)
+texture = ExtResource("9_rjo8m")
+
+[node name="botao_papeis3" parent="lixo papel/Caixa" instance=ExtResource("22_ybjvo")]
+position = Vector2(-1.56862, 4.31372)
+scale = Vector2(1.56863, 1.56863)
+
+[node name="lixo plastico" type="Node" parent="."]
+
+[node name="GarrafaPlastico" type="Sprite2D" parent="lixo plastico"]
+texture_filter = 1
+position = Vector2(764, 522)
+scale = Vector2(4.535, 4.535)
+texture = ExtResource("10_6skwa")
+
+[node name="botao_plasticos" parent="lixo plastico/GarrafaPlastico" instance=ExtResource("26_colb1")]
+
+[node name="SacolaPlastico" type="Sprite2D" parent="lixo plastico"]
+texture_filter = 1
+position = Vector2(845, 440)
+rotation = 0.23911
+scale = Vector2(2.865, 2.865)
+texture = ExtResource("11_ybt44")
+
+[node name="botao_plasticos2" parent="lixo plastico/SacolaPlastico" instance=ExtResource("26_colb1")]
+position = Vector2(-0.678217, 0.165333)
+rotation = -0.23911
+scale = Vector2(1.5829, 1.5829)
+
+[node name="GarrafaPlastico2" type="Sprite2D" parent="lixo plastico"]
+texture_filter = 1
+position = Vector2(795, 605)
+scale = Vector2(5.72, 5.72)
+texture = ExtResource("12_4vb8c")
+flip_h = true
+
+[node name="botao_plasticos3" parent="lixo plastico/GarrafaPlastico2" instance=ExtResource("26_colb1")]
+position = Vector2(0.524478, 0.174828)
+scale = Vector2(0.792832, 0.792832)
+
+[connection signal="pressed" from="CompletionPopup/CompletionPanel/Button" to="CompletionPopup" method="_on_button_pressed"]

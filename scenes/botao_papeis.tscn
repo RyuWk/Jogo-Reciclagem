@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs2hhchd2t0dp"]
+
+[ext_resource type="Script" uid="uid://u4i1k7nfv127" path="res://scripts/botao_papeis.gd" id="1_hxysm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxysm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c77kn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80q3v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6drb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryo5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4t82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhvnc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hn1sa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlend"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oedgi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pw5km"]
+
+[node name="botao_papeis" type="Node2D"]
+script = ExtResource("1_hxysm")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -10.5
+offset_right = 10.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hxysm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_c77kn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_80q3v")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_c6drb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ryo5o")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_a4t82")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vhvnc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hn1sa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wlend")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oedgi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pw5km")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
